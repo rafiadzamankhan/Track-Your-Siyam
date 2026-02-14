@@ -258,6 +258,8 @@ table {
 
   .time-box {
     width: 100%;
+    padding: 14px;
+    border-radius: 12px;
   }
 
   table {
@@ -271,6 +273,17 @@ table {
   .schedule-title {
     font-size: 20px;
   }
+
+  .time-box h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .time-box p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
 
   #timer {
     font-size: 22px;
@@ -295,9 +308,14 @@ table {
     padding: 8px 14px;
   }
 
+  .time-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
   body {
     font-size: 14px;
   }
 
 }
-
