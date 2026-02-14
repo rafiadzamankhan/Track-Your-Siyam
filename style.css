@@ -284,7 +284,7 @@ table {
 
 
 
-@media (max-width: 480px) {
+@media (max-width: 384px) {
 
   .top-card {
     padding: 20px;
@@ -300,3 +300,4 @@ table {
   }
 
 }
+
