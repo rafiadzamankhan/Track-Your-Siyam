@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramadan 2026 Timetable</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- <h1 class="main-title">Ramadan 2026</h1> -->
+    <div class="top-header">
+        <div class="left-header">
+            <h1 class="main-title">Ramadan 2026</h1>
+            <div id="header-date"></div>
+        </div>
+
+        <div class="right-header">
+            <div id="live-clock"></div>
+        </div>
+    </div>
+ 
+
+    <div class="top-card" id="top-card">
+      <h2 id="long-date"></h2>
+      <p id="ramadan-number"></p>
+
+      <div class="time-row">
+        <div class="time-box">
+          <h3>Sehri</h3>
+          <p id="sehri-time"></p>
+        </div>
+
+        <div class="time-box">
+          <h3>Iftar</h3>
+          <p id="iftar-time"></p>
+        </div>
+      </div>
+
+      <!-- <div class="test-panel">
+        <label>Test Date:</label>
+        <input type="date" id="test-date" title="Select test date" placeholder="YYYY-MM-DD">
+
+        <label>Test Time:</label>
+        <input type="time" id="test-time" title="Select test time" placeholder="HH:MM">
+
+        <button onclick="applyTestTime()">Apply</button>
+      </div> -->
+
+
+      <div class="countdown">
+        <h3 id="countdown-title"></h3>
+        <div id="timer"></div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="schedule-title" style="text-align: center;">Full Ramadan Schedule</h2>
+
+    <table id="schedule-table">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Date</th>
+          <th>Ramadan No.</th>
+          <th>Sehri</th>
+          <th>Iftar</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
