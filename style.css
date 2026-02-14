@@ -222,3 +222,81 @@ table {
 .right-header:hover {
   transform: translateY(-3px);
 }
+
+/* ========================= */
+/* MOBILE RESPONSIVE DESIGN */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .container {
+    padding: 20px 15px;
+  }
+
+  .top-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .right-header {
+    align-self: flex-end;
+  }
+
+  .main-title {
+    font-size: 28px;
+  }
+
+  #header-date {
+    font-size: 14px;
+  }
+
+  .time-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .time-box {
+    width: 100%;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 10px 6px;
+  }
+
+  .schedule-title {
+    font-size: 20px;
+  }
+
+  #timer {
+    font-size: 22px;
+  }
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 16px;
+}
+
+
+
+@media (max-width: 480px) {
+
+  .top-card {
+    padding: 20px;
+  }
+
+  .right-header {
+    font-size: 16px;
+    padding: 8px 14px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+}
