@@ -6,7 +6,7 @@
   color: #334155;
 } */
 
-body {
+/* body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
   background:
@@ -15,8 +15,28 @@ body {
   background-size: 80px 80px, cover;
   min-height: 100vh;
   color: #334155;
+} */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  /* Slightly darker, textured ocean-tinted background */
+  background:
+    radial-gradient(circle at 10% 10%, rgba(30,58,95,0.06), transparent 18%),
+    radial-gradient(circle at 90% 90%, rgba(43,138,138,0.04), transparent 20%),
+    linear-gradient(135deg, #1a1f2e 0%, #2c3e50 50%, #1e3a5f 100%);
+  background-attachment: fixed;
+  color: #F5F2ED; /* Cream text for contrast */
+  min-height: 100vh;
 }
 
+:root {
+  --ocean-light: #F5F2ED;
+  --ocean-mid: #D4AF37;
+  --ocean: #2B8A8A;
+  --ocean-deep: #1e3a5f;
+  --accent: #D4AF37;
+}
 
 .container {
   max-width: 1100px;
@@ -30,7 +50,7 @@ body {
   margin-bottom: 30px;
 }
 
-.top-card {
+/* .top-card {
   background: linear-gradient(135deg, #ffffffcc, #f8fafc);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
@@ -39,6 +59,16 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   transition: 0.3s ease;
   margin-bottom: 40px;
+} */
+
+.top-card {
+  background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(43,138,138,0.06), rgba(245,242,237,0.05));
+  border: 1px solid #D4AF37;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(30,58,95,0.12), inset 0 3px 8px rgba(212,175,55,0.08);
+  padding: 28px 36px; /* keep content away from card edges on wide screens */
 }
 
 .top-card:hover {
@@ -47,30 +77,42 @@ body {
 
 .time-row {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 18px;
   margin: 20px 0;
 }
 
 .time-box {
-  background: linear-gradient(135deg, #e0f2fe, #fce7f3);
-  padding: 20px;
-  border-radius: 16px;
-  width: 40%;
-  transition: 0.3s ease;
+  background: linear-gradient(135deg, rgba(43,138,138,0.1), rgba(212,175,55,0.08));
+  border: 1px solid #D4AF37;
+  color: #F5F2ED;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 12px;
+  padding: 18px 22px; /* added padding for Sehri/Iftar boxes */
+  box-shadow: 0 6px 16px rgba(30,58,95,0.1), inset 0 -3px 8px rgba(212,175,55,0.06);
 }
-
 .time-box:hover {
-  transform: scale(1.05);
-}
-
-.countdown {
-  margin-top: 20px;
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(30,58,95,0.15), inset 0 -3px 8px rgba(212,175,55,0.1);
 }
 
 #timer {
   font-size: 28px;
   font-weight: bold;
   margin-top: 10px;
+} */
+
+/* Removed duplicate .time-box block (padding handled above) */
+
+#timer {
+  color: #D4AF37; /* Gold countdown accent */
+  text-shadow: 0 2px 10px rgba(30,58,95,0.3);
+  font-weight: 700;
+}
+
+.countdown {
+  margin-top: 20px;
+  padding: 6px 2px; /* small internal spacing for remaining time area */
 }
 
 .schedule-title {
@@ -80,10 +122,12 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
-  background: linear-gradient(135deg, #ffffffcc, #f8fafc);
+  background: linear-gradient(135deg, rgba(30,58,95,0.05), rgba(43,138,138,0.04));
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 28px rgba(30,58,95,0.12);
+  border: 1px solid #D4AF37;
+  font-size: 13px;
 }
 
 th, td {
@@ -92,7 +136,9 @@ th, td {
 }
 
 thead {
-  background: linear-gradient(135deg, #bae6fd, #fbcfe8);
+  background: linear-gradient(90deg, #1e3a5f, #2B8A8A);
+  color: #D4AF37;
+  font-weight: bold;
 }
 
 tbody tr {
@@ -100,34 +146,37 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background: linear-gradient(135deg, #f0f9ff, #fdf2f8);
+  background: linear-gradient(135deg, rgba(43,138,138,0.1), rgba(212,175,55,0.08));
   transform: scale(1.01);
 }
 
 .highlight-row {
-  background: linear-gradient(135deg, #bbf7d0, #d9f99d) !important;
-  font-weight: bold;
+  background: linear-gradient(90deg, rgba(212,175,55,0.15), rgba(43,138,138,0.12)) !important;
+  font-weight: 700;
+  border-left: 4px solid #D4AF37;
 }
-
 .highlight-top {
-  border: 2px solid #22c55e;
-}
-
-.progress-container {
-  margin-top: 20px;
-  width: 100%;
-  height: 12px;
-  background: #e2e8f0;
-  border-radius: 20px;
-  overflow: hidden;
+  border: 2px solid #D4AF37;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 6px rgba(212,175,55,0.12), 0 6px 16px rgba(30,58,95,0.1);
 }
 
 .progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #a5f3fc, #fbcfe8, #bbf7d0);
+  background: linear-gradient(90deg, #2B8A8A, #D4AF37);
   border-radius: 20px;
   transition: width 1s linear;
+}
+
+/* Remaining time text padding */
+.countdown #timer {
+  padding: 14px 18px;
+  display: inline-block;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(30,58,95,0.12), rgba(43,138,138,0.1));
+  color: #D4AF37;
+  border: 1px solid #D4AF37;
 }
 
 body {
@@ -163,6 +212,8 @@ table {
   }
 }
 
+
+/* the commneted out part is for testing */
 /* .test-panel {
   margin: 15px 0;
   display: flex;
@@ -209,7 +260,7 @@ table {
   margin-top: 6px;
 }
 
-.right-header {
+/* .right-header {
   font-size: 20px;
   font-weight: 600;
   background: linear-gradient(135deg, #e0f2fe, #fce7f3);
@@ -217,10 +268,85 @@ table {
   border-radius: 14px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
   transition: 0.3s ease;
+} */
+
+.right-header {
+  background: linear-gradient(135deg, rgba(30,58,95,0.08), rgba(43,138,138,0.06), rgba(212,175,55,0.05));
+  color: #D4AF37; /* Gold text */
+  box-shadow: 0 8px 20px rgba(30,58,95,0.1), inset 0 2px 6px rgba(212,175,55,0.1);
+  border-radius: 14px;
+  align-content: center;
+  border: 1px solid #D4AF37;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 14px 24px;
 }
 
 .right-header:hover {
   transform: translateY(-3px);
+}
+
+/* ========================= */
+/* COLOR VARIANTS */
+/* ========================= */
+
+/* TEAL VARIANT - Aquatic, Calm Philosophy */
+.top-card.variant-teal {
+  background: linear-gradient(135deg, rgba(43,138,138,0.12), rgba(212,175,55,0.05), rgba(245,242,237,0.04));
+  border-color: #2B8A8A;
+}
+
+.time-box.variant-teal {
+  background: linear-gradient(135deg, rgba(43,138,138,0.15), rgba(245,242,237,0.08));
+  border-color: #2B8A8A;
+}
+
+.time-box.variant-teal:hover {
+  box-shadow: 0 12px 28px rgba(43,138,138,0.2), inset 0 -3px 8px rgba(43,138,138,0.15);
+}
+
+/* NAVY VARIANT - Traditional, Authoritative */
+.top-card.variant-navy {
+  background: linear-gradient(135deg, rgba(30,58,95,0.15), rgba(212,175,55,0.04), rgba(245,242,237,0.04));
+  border-color: #1e3a5f;
+}
+
+.time-box.variant-navy {
+  background: linear-gradient(135deg, rgba(30,58,95,0.15), rgba(245,242,237,0.08));
+  border-color: #1e3a5f;
+  color: #F5F2ED;
+}
+
+.time-box.variant-navy:hover {
+  box-shadow: 0 12px 28px rgba(30,58,95,0.2), inset 0 -3px 8px rgba(30,58,95,0.15);
+}
+
+/* CREAM VARIANT - Warm, Welcoming */
+.top-card.variant-cream {
+  background: linear-gradient(135deg, rgba(245,242,237,0.12), rgba(212,175,55,0.08), rgba(43,138,138,0.04));
+  border-color: #D4AF37;
+}
+
+.time-box.variant-cream {
+  background: linear-gradient(135deg, rgba(245,242,237,0.15), rgba(212,175,55,0.1));
+  border-color: #D4AF37;
+  color: #1e3a5f;
+}
+
+.time-box.variant-cream:hover {
+  color: #2B8A8A;
+  box-shadow: 0 12px 28px rgba(212,175,55,0.2), inset 0 -3px 8px rgba(245,242,237,0.15);
+}
+
+/* DESATURATED VARIANT - Minimalist, Focused */
+.top-card.variant-minimal {
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(245,242,237,0.06));
+  border-color: rgba(212,175,55,0.5);
+}
+
+.time-box.variant-minimal {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(245,242,237,0.08));
+  border-color: rgba(212,175,55,0.4);
 }
 
 /* ========================= */
@@ -233,7 +359,7 @@ table {
     padding: 20px 15px;
   }
 
-  .top-header {
+  /* .top-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
@@ -245,25 +371,39 @@ table {
 
   .main-title {
     font-size: 28px;
+  } */
+
+  .top-header {
+    flex-direction: row; /* Change from column to row */
+    justify-content: space-between;
+    align-items: center; /* Vertically center them */
   }
+  .right-header {
+    align-self: center; /* Align with the date */
+    font-size: 14px; /* Slightly smaller font to ensure fit */
+  }
+  .main-title {
+    font-size: 28px; /* Scale down title to prevent overflow */
+  }
+}
 
   #header-date {
     font-size: 14px;
   }
 
   .time-row {
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row; /* Keep them side-by-side */
+    justify-content: space-between; /* Space them evenly */
+    gap: 10px;
+  }
+  .time-box {
+    width: 40%; /* Adjust width so two fit on one line */
+    padding: 12px; /* Reduce padding for mobile */
   }
 
-  .time-box {
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-  }
 
   table {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   th, td {
@@ -288,7 +428,7 @@ table {
   #timer {
     font-size: 22px;
   }
-}
+
 
 .table-wrapper {
   overflow-x: auto;
@@ -308,11 +448,21 @@ table {
     padding: 8px 14px;
   }
 
-  .time-row {
+  /* .time-row {
     flex-direction: column;
     gap: 10px;
-  }
+  } */
 
+
+  .time-row {
+    flex-direction: row; /* Keep them side-by-side */
+    justify-content: space-between; /* Space them evenly */
+    gap: 10px;
+  }
+  .time-box {
+    width: 40%; /* Adjust width so two fit on one line */
+    padding: 12px; /* Reduce padding for mobile */
+  }
 
   body {
     font-size: 14px;
@@ -332,6 +482,10 @@ table {
 
   .time-box p {
     font-size: 16px;
+  }
+
+  table {
+    font-size: 11px;
   }
 
 }
