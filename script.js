@@ -41,105 +41,6 @@ function convertToDateTime(dateStr, timeStr) {
 }
 
 
-// function updateCountdown() {
-// //   const now = new Date();
-//   const now = simulatedDateTime ? new Date(simulatedDateTime) : new Date();
-
-//   const todayStr = formatDate(now);
-
-//   const todayData = ramadanData.find(d => d.date === todayStr);
-//   if (!todayData) return;
-
-//   const ramadanIndex = ramadanData.findIndex(d => d.date === todayStr);
-//   const ramadanNumber = ramadanIndex + 1;
-
-//   document.getElementById("long-date").innerText = getLongDate(now);
-//   document.getElementById("ramadan-number").innerText =
-//     `Ramadan Day ${ramadanNumber}`;
-
-//   document.getElementById("sehri-time").innerText = todayData.sehri;
-//   document.getElementById("iftar-time").innerText = todayData.iftar;
-
-//   document.getElementById("top-card").classList.add("highlight-top");
-
-//   const sehriTime = convertToDateTime(todayStr, todayData.sehri);
-//   const iftarTime = convertToDateTime(todayStr, todayData.iftar);
-
-//   if (isNaN(sehriTime) || isNaN(iftarTime)) {
-//     console.error("Invalid date parsing");
-//     return;
-//   }
-
-
-//   let targetTime;
-//   let title;
-
-//   if (now < sehriTime) {
-//     targetTime = sehriTime;
-//     title = "Remaining time until Sehri";
-//   } else if (now < iftarTime) {
-//     targetTime = iftarTime;
-//     title = "Remaining time until Iftar";
-//   } else {
-//     // After Iftar → calculate next day's Sehri using real date object
-
-//     const nextIndex = todayIndex + 1;
-
-//     if (nextIndex >= ramadanData.length) {
-//       document.getElementById("countdown-title").innerText =
-//         "Ramadan completed 🌙";
-//       document.getElementById("timer").innerText = "";
-//       return;
-//     }
-
-//     const tomorrow = new Date(now);
-//     tomorrow.setDate(tomorrow.getDate() + 1);
-
-//     const nextDateStr = formatDate(tomorrow);
-//     const nextDayData = ramadanData[nextIndex];
-
-//     const nextSehriTime = convertToDateTime(nextDateStr, nextDayData.sehri);
-
-//     targetTime = nextSehriTime;
-//     title = "Remaining time until Sehri";
-//   }
-
-//   document.getElementById("countdown-title").innerText = title;
-
-//   const diff = targetTime - now;
-
-//   const hours = Math.floor(diff / (1000 * 60 * 60));
-//   const minutes = Math.floor((diff / (1000 * 60)) % 60);
-//   const seconds = Math.floor((diff / 1000) % 60);
-
-//   document.getElementById("timer").innerText =
-//     `${hours}h ${minutes}m ${seconds}s`;
-
-//   const progressBar = document.getElementById("progress-bar");
-
-//   if (now < sehriTime) {
-//     // Before Sehri → reverse countdown toward Sehri
-//     const total = sehriTime - new Date(todayStr + "T00:00");
-//     const passed = now - new Date(todayStr + "T00:00");
-//     const percent = (passed / total) * 100;
-//     progressBar.style.width = percent + "%";
-//   }
-
-//   else if (now >= sehriTime && now < iftarTime) {
-//     // During fasting → progress toward Iftar
-//     const total = iftarTime - sehriTime;
-//     const passed = now - sehriTime;
-//     const percent = (passed / total) * 100;
-//     progressBar.style.width = percent + "%";
-//   }
-
-//   else {
-//     // After Iftar
-//     progressBar.style.width = "100%";
-//   }
-  
-// }
-
 function updateCountdown() {
 
   const now = simulatedDateTime ? new Date(simulatedDateTime) : new Date();
@@ -213,20 +114,26 @@ function updateCountdown() {
     `${hours}h ${minutes}m ${seconds}s`;
 
   const progressBar = document.getElementById("progress-bar");
+  const wavyFill = document.getElementById("wavy-fill");
 
   if (now < sehriTime) {
     const midnight = new Date(todayStr + "T00:00:00");
     const total = sehriTime - midnight;
     const passed = now - midnight;
-    progressBar.style.width = (passed / total) * 100 + "%";
+    const pct = (passed / total) * 100;
+    progressBar.style.width = pct + "%";
+    if (wavyFill) wavyFill.style.width = pct + "%";
   }
   else if (now < iftarTime) {
     const total = iftarTime - sehriTime;
     const passed = now - sehriTime;
-    progressBar.style.width = (passed / total) * 100 + "%";
+    const pct = (passed / total) * 100;
+    progressBar.style.width = pct + "%";
+    if (wavyFill) wavyFill.style.width = pct + "%";
   }
   else {
     progressBar.style.width = "100%";
+    if (wavyFill) wavyFill.style.width = "100%";
   }
 }
 
