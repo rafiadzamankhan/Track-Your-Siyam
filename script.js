@@ -52,7 +52,7 @@ function updateCountdown() {
   const todayData = ramadanData[todayIndex];
   const ramadanNumber = todayIndex + 1;
 
-  document.getElementById("long-date").innerText = getLongDate(now);
+  //document.getElementById("long-date").innerText = getLongDate(now);
   document.getElementById("ramadan-number").innerText =
     `Ramadan Day ${ramadanNumber}`;
 
@@ -201,3 +201,4 @@ setInterval(updateCountdown, 1000);
 updateCountdown();
 setInterval(updateHeaderClock, 1000);
 updateHeaderClock();
+
