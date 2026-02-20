@@ -75,6 +75,20 @@ body {
   transform: translateY(-4px);
 }
 
+/* Ramadan day label above Sehri/Iftar */
+#long-date {
+  font-size: 18px;
+  margin: 0 0 6px;
+  font-weight: 600;
+  color: var(--ocean-light);
+}
+
+#ramadan-number {
+  font-size: 26px; /* increased size for prominence */
+  font-weight: 700;
+  margin: 6px 0 14px;
+  color: var(--accent);
+}
 .time-row {
   display: flex;
   justify-content: space-between;
@@ -488,4 +502,18 @@ table {
     font-size: 11px;
   }
 
+}
+
+
+/* Responsive adjustments for Ramadan day label */
+@media (max-width: 768px) {
+  #ramadan-number {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #ramadan-number {
+    font-size: 18px;
+  }
 }
